@@ -13,7 +13,8 @@
 		  [behaviour :as b]))
   (:import (java.awt Color Graphics Dimension)
 	   (java.awt.image BufferedImage)
-	   (javax.swing JPanel JFrame)))
+	   (javax.swing JPanel JFrame))
+  (:gen-class))
   
 
 ;pixels per world cell
@@ -101,6 +102,12 @@
   nil)
 
 (defn start-anim [] (send-off animator animation))
+
+(def  ants (w/setup))
+(defn -main []
+  (dorun (map #(send-off % b/behave) ants))
+  (start-anim)
+  (send-off evaporator evaporation))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; use ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (comment

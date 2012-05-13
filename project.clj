@@ -6,4 +6,5 @@
 		     [cdt "1.0.1-SNAPSHOT"]]
 
   :jvm-opts
-  ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8030"])
+  ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8030"]
+  :main ants.ui)
